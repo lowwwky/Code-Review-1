@@ -8,8 +8,8 @@
 # include <iostream>
 # include <string>
 # include <algorithm>
-# include <Windows.h>
-# include <locale.h>
+//# include <Windows.h>
+# include "Task04Header.h"
 
 // FIX_ME: В Google C++ Style запрещается использовать namespace std; 
 //using namespace std;
@@ -18,7 +18,7 @@
 // FIX_ME: В google c++ codestyle форматирование скобок идет рядом с if/while...
 // FIX_ME: Именование должно быть информативным.
 //int num(const string& s, size_t& pos)
-int Num(const std::string& extracred_string, size_t& extracted_position) {
+int Gluing::Num(const std::string& extracred_string, size_t& extracted_position) {
 	//{
 	int number = 0;
 	//while (pos < s.length() && s[pos] >= '0' && s[pos] <= '9') {
@@ -36,7 +36,7 @@ int Num(const std::string& extracred_string, size_t& extracted_position) {
 // FIX_ME: Именование должно быть информативным.
 //int calc(const string &s,size_t& pos)
 //{
-int Calculate(const std::string& received_string, size_t& starting_position) {
+int Gluing::Calculate(const std::string& received_string, size_t& starting_position) {
 	if (received_string[starting_position] >= '0' && received_string[starting_position] <= '9') {
 		//return num(s, pos);
 		return Num(received_string, starting_position);
@@ -106,14 +106,13 @@ int Calculate(const std::string& received_string, size_t& starting_position) {
 	}
 }
 
-int main() {
+void Gluing::CallFunction() {
+//int main() {
 //{
 	// FIX_ME: Использование SetConsoleCP и SetConsoleOutputCP делает программу менее переносимой.
 	// SetConsoleCP(1251);
 	// SetConsoleOutputCP(1251);
-	// setlocale(LC_ALL, "ru");
-	// setlocale(LC_ALL, "ru");
-	setlocale(LC_ALL, "Russian");
+	setlocale(LC_ALL, "ru");
 
 	// FIX_ME: Слишком расплывчатое описание задачи.
 	//cout << "Добро пожаловать! " << endl;
@@ -171,5 +170,5 @@ int main() {
 	std::cout << "Полученный результат равен: ";
 	std::cout << result << " ";
 
-	return 0;
+	//return 0;
 }

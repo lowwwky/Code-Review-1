@@ -3,16 +3,17 @@
 //два и более подряд идущих нулей.Для того, чтобы избежать переполнения, ответ
 //представьте в виде вещественного числа.
 
-#include <iostream>
-#include <fstream>
-#include <vector>
-#include <locale>
-#include <locale.h>
+# include <iostream>
+# include <fstream>
+# include <vector>
+# include <locale>
+# include <locale.h>
+# include "Task03Header.h"
 
 // FIX_ME: В Google C++ Style запрещается использовать namespcae std; 
 //using namespace std;
 
-std::vector<int> EnterDigits() {
+std::vector<int> Counter::EnterDigits() {
     int numeric_system = 0;
     int amount_of_digits = 0;
     while (true) {
@@ -48,7 +49,7 @@ std::vector<int> EnterDigits() {
     return std::vector<int>{numeric_system, amount_of_digits};
 }
 
-double Сalculate(int numeric_system, int amount_of_digits) {
+double Counter::Сalculate(int numeric_system, int amount_of_digits) {
     std::vector<std::vector<double>> dp(amount_of_digits + 1, std::vector<double>(numeric_system, 0));
 
     for (int j = 0; j < numeric_system; ++j) {
@@ -75,7 +76,8 @@ double Сalculate(int numeric_system, int amount_of_digits) {
     return result;
 }
 
-int main() {
+void Counter::CallFunction() {
+//int main() {
     //setlocale(LC_ALL, "ru");
     setlocale(LC_ALL, "Russian");
 
@@ -125,6 +127,5 @@ int main() {
     double result = Сalculate(numeric_system, amount_of_digits);
     std::cout << "Ответ: " << result << std::endl;
 
-    return 0;
-
+    //return 0;
 }

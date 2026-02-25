@@ -5,19 +5,18 @@
 //ле, в первой строке указаны N и Z, а во второй строке значения весов(в кг), в третьей - величина
 //налога по каждой находке.Вывести так же суммарный вес и общую ценность результата.
 
-
 #include <iostream>
 #include <fstream>
 #include <vector>
 #include <algorithm>
 #include <climits>
-#include <Windows.h>
-#include <locale>
+#include "Task02Header.h"
+// #include <Windows.h>
 
 // FIX_ME: В Google C++ Style запрещается использовать namespace std; 
 //using namespace std;
 
-void readArtifacts(int& amount_of_artifact, int& weight_to_overcome, std::vector<int>& weights, std::vector<int>& taxes) {
+void Artifacts::readArtifacts(int& amount_of_artifact, int& weight_to_overcome, std::vector<int>& weights, std::vector<int>& taxes) {
     // FIX_ME: В задании не написано, что выходные данные должны быть выведены в текстовый файл.
     // FIX_ME: Отсутсвует проверка на созданный файл.
     //ifstream input("input.txt");
@@ -49,7 +48,7 @@ void readArtifacts(int& amount_of_artifact, int& weight_to_overcome, std::vector
     input.close();
 }
 
-void findMinBurden(int amount_of_artifacts, int weight_to_top, int& best_weight, int& min_tax,
+void Artifacts::findMinBurden(int amount_of_artifacts, int weight_to_top, int& best_weight, int& min_tax,
     std::vector<int>& weights, std::vector<int>& taxes, std::vector<bool>& best_selection) {
     // Инициализация массива для хранения минимального налогового бремени для каждого возможного веса
    //int max_possible_weight = Z + 100; // Максимально возможный вес
@@ -84,10 +83,11 @@ void findMinBurden(int amount_of_artifacts, int weight_to_top, int& best_weight,
 
 }
  
-int main() {
+void Artifacts::CallFunction() {
+//int main() {
     // FIX_ME: Использование SetConsoleCP и SetConsoleOutputCP делает программу менее переносимой.
-    SetConsoleCP(1251);
-    SetConsoleOutputCP(1251);
+    // SetConsoleCP(1251);
+    // SetConsoleOutputCP(1251);
     //setlocale(LC_ALL, "ru");
 
     // FIX_ME: Отдельные задачи лучше разбивать на несколько методов.
@@ -101,14 +101,10 @@ int main() {
 
     // Именование должно быть информативным.
     //int N, Z;// кол во артеф и мин треб вес
-    //int amount_of_artifacts, weight_to_exceed;
     //input >> N >> Z;
-    //input >> amount_of_artifacts, weight_to_exceed;
 
     //vector<int> weights(N);//вектор для хранения весов артф
     //vector<int> taxes(N);//вектор для хранения налового бремени
-    //std::vector<int> weights(amount_of_artifacts);
-    //std::vector<int> taxes(amount_of_artifacts);
 
     //for (int i = 0; i < N; ++i) { //цикл для чтения весов и налогов из файла
     //for (int i = 0; i < amount_of_artifacts; ++i) {
@@ -177,7 +173,6 @@ int main() {
         }
     }
     //output << endl;
-    //output << std::endl;
     std::cout << std::endl;
 
     //output << "Суммарный вес: " << best_weight << " кг" << endl;
@@ -188,7 +183,7 @@ int main() {
     //input.close();
     //output.close();
 
-    return 0;
+    //return 0;
 }
 
 

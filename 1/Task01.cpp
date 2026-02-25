@@ -9,6 +9,7 @@
 #include <fstream>
 #include <vector>
 #include <climits>
+#include "Task01Header.h"
 //#include <Windows.h>
 
 constexpr int kInf = INT_MAX / 4;
@@ -16,7 +17,8 @@ constexpr int kInf = INT_MAX / 4;
 // FIX_ME: В Google C++ Style запрещается использовать namespace std; 
 //using namespace std;
 
-void WriteArtifacts(int& amount_of_artifacts, int& weight_to_exceed, std::vector<int>& weights, std::vector<int>& burden) {
+// Функция предназначена для записи данных из файла в векторы.
+void Artifacts::WriteArtifacts(int& amount_of_artifacts, int& weight_to_exceed, std::vector<int>& weights, std::vector<int>& burden) {
     std::ifstream input("1.1.txt");
     if (!input.is_open()) {
         //cout << "Ошибка при открытии файла" << endl;
@@ -39,8 +41,9 @@ void WriteArtifacts(int& amount_of_artifacts, int& weight_to_exceed, std::vector
 }
 
 // FIX_ME: Именование переменных должно быть информативным.
+// Функция предназначена для вывода артифактов.
 //void SelectArts(vector<vector<int>>& dp, int k, int s, vector<int>& weights, vector<int>& time) {
-void SelectArts(std::vector<std::vector<int>>& min_taxes, int artifact_count, int total_weight,
+void Artifacts::SelectArts(std::vector<std::vector<int>>& min_taxes, int artifact_count, int total_weight,
     std::vector<int>& weights, std::vector<int>& burden, std::vector<int>& answer_sequence) {
     //if (k == 0 || s == 0)
     if (artifact_count == 0 || total_weight == 0)
@@ -60,7 +63,8 @@ void SelectArts(std::vector<std::vector<int>>& min_taxes, int artifact_count, in
 
 }
 
-void FindMinimalBurden(int amount_of_artifacts, int weight_to_exceed, int& total_weight, int& min_burden,
+// Функция предназначена для поиска минимального налогового бремя
+void Artifacts::FindMinimalBurden(int amount_of_artifacts, int weight_to_exceed, int& total_weight, int& min_burden,
     std::vector<int>& weights, std::vector<int>& burden, std::vector<int> answer_sequence) {
     int max_weight = 0;
     for (int w : weights) {
@@ -116,7 +120,10 @@ void FindMinimalBurden(int amount_of_artifacts, int weight_to_exceed, int& total
     std::cout << std::endl;
 }
 
-int main() {
+
+//int main() {
+// Функция предназначена для вызова извне класса
+int Artifacts::CallFunction() { 
     // FIX_ME: Использование SetConsoleCP и SetConsoleOutputCP делает программу менее переносимой.
     // SetConsoleCP(1251);
     // SetConsoleOutputCP(1251);
